@@ -52,8 +52,12 @@ const Calculator = () => {
         break
       case "÷":
         try {
-          const res = await calculator.div(nb1, nb2)
-          setResult(res.toString())
+          if (nb2 === 0) {
+            setResult("DIV BY 0")
+          } else {
+            const res = await calculator.div(nb1, nb2)
+            setResult(res.toString())
+          }
         } catch (e) {
           console.log(e)
         }
@@ -74,6 +78,7 @@ const Calculator = () => {
   return (
     <Flex my={5} direction="column" align="center" justify="center">
       <Grid
+        height="300px"
         shadow="xs"
         rounded="lg"
         backgroundColor="cyan.100"
@@ -104,18 +109,21 @@ const Calculator = () => {
         >
           {result}
         </GridItem>
-        <GridItem rowSpan={3} colSpan={1}>
+        <GridItem rowSpan={1} colSpan={1}>
           <Button
             height="100%"
+            width="100%"
             type="button"
-            value="0"
-            onClick={(e) => setExpression(expression + e.target.value)}
+            value="reset"
+            onClick={(e) => setExpression("")}
           >
-            0
+            Reset
           </Button>
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             type="button"
             value="1"
             onClick={(e) => setExpression(expression + e.target.value)}
@@ -125,6 +133,8 @@ const Calculator = () => {
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             type="button"
             value="2"
             onClick={(e) => setExpression(expression + e.target.value)}
@@ -134,6 +144,8 @@ const Calculator = () => {
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             type="button"
             value="3"
             onClick={(e) => setExpression(expression + e.target.value)}
@@ -144,6 +156,8 @@ const Calculator = () => {
 
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             bgColor="gray.300"
             type="button"
             value="+"
@@ -154,6 +168,8 @@ const Calculator = () => {
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             bgColor="gray.300"
             type="button"
             value="-"
@@ -162,8 +178,22 @@ const Calculator = () => {
             -
           </Button>
         </GridItem>
+        <GridItem rowSpan={2} colSpan={1}>
+          <Button
+            height="100%"
+            width="100%"
+            height="100%"
+            type="button"
+            value="0"
+            onClick={(e) => setExpression(expression + e.target.value)}
+          >
+            0
+          </Button>
+        </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             type="button"
             value="4"
             onClick={(e) => setExpression(expression + e.target.value)}
@@ -173,6 +203,8 @@ const Calculator = () => {
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             type="button"
             value="5"
             onClick={(e) => setExpression(expression + e.target.value)}
@@ -182,6 +214,8 @@ const Calculator = () => {
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             type="button"
             value="6"
             onClick={(e) => setExpression(expression + e.target.value)}
@@ -191,6 +225,8 @@ const Calculator = () => {
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             bgColor="gray.300"
             type="button"
             value="x"
@@ -201,6 +237,8 @@ const Calculator = () => {
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             bgColor="gray.300"
             type="button"
             value="÷"
@@ -211,6 +249,8 @@ const Calculator = () => {
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             type="button"
             value="7"
             onClick={(e) => setExpression(expression + e.target.value)}
@@ -220,6 +260,8 @@ const Calculator = () => {
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             type="button"
             value="8"
             onClick={(e) => setExpression(expression + e.target.value)}
@@ -229,6 +271,8 @@ const Calculator = () => {
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             type="button"
             value="9"
             onClick={(e) => setExpression(expression + e.target.value)}
@@ -238,6 +282,8 @@ const Calculator = () => {
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             bgColor="gray.300"
             type="button"
             value="%"
@@ -248,6 +294,8 @@ const Calculator = () => {
         </GridItem>
         <GridItem rowSpan={1} colSpan={1}>
           <Button
+            height="100%"
+            width="100%"
             bgColor="gray.400"
             type="button"
             value="="
